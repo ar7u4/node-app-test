@@ -56,8 +56,8 @@ jobs:
           ECR_REPOSITORY: nodewebapp
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY:IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
 
       - name: Update kube config
         run: aws eks update-kubeconfig --name nodewebapp --region eu-north-1

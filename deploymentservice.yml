@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: nodeapp-deployment
   labels:
-    app: nodeapp
+    app: nodejs_demo_image
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: nodejs_demo_image
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: nodejs_demo_image 
     spec:
       containers:
       - name: nodeserver
-        image: ar7u4/nodeapp:latest
+        image: 295134731113.dkr.ecr.eu-north-1.amazonaws.com/nodewebapp:nodejs_demo_image
         ports:
         - containerPort: 3000
         
@@ -29,7 +29,7 @@ metadata:
   name: nodeapp-service
 spec:
   selector:
-    app: nodeapp 
+    app: nodejs_demo_image 
   type: LoadBalancer
   ports:
   - protocol: TCP

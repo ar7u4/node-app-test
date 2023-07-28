@@ -38,7 +38,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push image to Amazon ECR
+    - name: Build, tag, and push image to Amazon uff  ECR
       env:
         ECR_REGISTRY: 295134731113.dkr.ecr.eu-north-1.amazonaws.com
         ECR_REPOSITORY: nodewebapp
